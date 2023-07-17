@@ -21,5 +21,6 @@ def travel_planner():
     tp = scheduling(departure, destination, int(duration), begin_date)
 
     return json.loads(tp.toJSON())
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
