@@ -24,7 +24,7 @@ conn = pymysql.connect(host='roamassistantdatabase.cas2ra1clovs.us-east-1.rds.am
                        , user='admin'  # 用户名
                        , passwd='guidegenius'  # 密码
                        , port=3306  # 端口，默认为3306
-                       , db='roamassistantdatabase'  # 数据库名称
+                       , db='RoamAssistant'  # 数据库名称
                        , charset='utf8'  # 字符编码
                        )
 
