@@ -13,8 +13,8 @@ Aside from the core functionality, we need to also consider following aspects of
         (2) Whether to use the ChatGPT for help?
         (3) How to pre-train ChatGPT to satisfy our requirement
 """
-from static.Attraction import Attraction
-from static.TravelPlan import TravelPlanner
+from Entity.Attraction import Attraction
+from Entity.TravelPlan import TravelPlanner
 import copy
 
 attraction_list = []
@@ -78,15 +78,18 @@ def scheduling(departure:str, destination:str, days:int, first_dat:str):
         demo_plan = copy.deepcopy(travel_planner.demo_plan)
         demo_plan['Day'] = day + 1
         demo_plan['Morning']['text'] = attraction_list[ptr].intro
-        demo_plan['Morning']['link'] = attraction_list[ptr].imgsrc
+        demo_plan['Morning']['imgsrc'] = attraction_list[ptr].imgsrc
+        demo_plan['Morning']['details_url'] = attraction_list[ptr].details_url
         ptr = ptr + 1
 
         demo_plan['Afternoon']['text'] = attraction_list[ptr].intro
-        demo_plan['Afternoon']['link'] = attraction_list[ptr].imgsrc
+        demo_plan['Afternoon']['imgsrc'] = attraction_list[ptr].imgsrc
+        demo_plan['Afternoon']['details_url'] = attraction_list[ptr].details_url
         ptr = ptr + 1
 
         demo_plan['Evening']['text'] = attraction_list[ptr].intro
-        demo_plan['Evening']['link'] = attraction_list[ptr].imgsrc
+        demo_plan['Evening']['imgsrc'] = attraction_list[ptr].imgsrc
+        demo_plan['Evening']['details_url'] = attraction_list[ptr].details_url
         ptr = ptr + 1
 
         travel_planner.travel_plans.append(demo_plan)
