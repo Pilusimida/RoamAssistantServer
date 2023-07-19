@@ -57,24 +57,26 @@ def retrieve_data(destination: str):
 
 def select_attraction_by_name(name: str):
     cur = conn.cursor()
-    sql = "SELECT * FROM Attraction WHERE attraction_name = '%s';" % name
-    # print(sql)
+    sql = "SELECT * FROM Attraction WHERE attraction_name = '%s' " % name
+    print(sql)
     cur.execute(sql)
     data = cur.fetchall()
     d = data[0]
+    print(d)
     attraction = Attraction(d[0], d[1], d[2], d[3], d[4], d[5], d[6], d[7])
     cur.close()
-    conn.close()
+    # conn.close()
     return attraction
 
 
 def select_country_by_city(city: str):
     cur = conn.cursor()
-    sql = "select country_name from Country where country_id = (select country_id from City where city_name = '%s);" % city
+    sql = "select country_name from Country where country_id = (select country_id from City where city_name = '%s');" % city
     # print(sql)
     cur.execute(sql)
     data = cur.fetchall()
     d = data[0]
+    cur.close()
     return d[0]
 
 
