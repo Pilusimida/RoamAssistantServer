@@ -45,9 +45,11 @@ class TravelPlanner(object):
                 "link": "https://www.kayak.sg/hotels/Singapore/2023-07-12/2023-07-16?sort=rank_a"
             }
         }
+        self.city_introduction = ""
 
     def toJSON(self):
         travelPlanner = {"Travel_Plans": self.travel_plans,
                         "Additional_Information": self.additional_information,
-                        "Accommodation": self.accommodation}
+                        "Accommodation": self.accommodation,
+                        "City_Introduction": self.city_introduction}
         return json.dumps(travelPlanner)

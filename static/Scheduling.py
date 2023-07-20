@@ -163,4 +163,9 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
     else:
         travel_planner.additional_information["Emergency_Number"] = "995"
         travel_planner.additional_information["Policy_Number"] = "999"
+
+    if destination == "Beijing":
+        travel_planner.city_introduction = "Beijing, the vibrant capital of China, blends ancient history with modernity. The city is a treasure trove of cultural wonders, featuring iconic landmarks like the Great Wall, Forbidden City, and Temple of Heaven. With a rich heritage, bustling markets, and diverse cuisine, Beijing offers an unforgettable experience for travelers from all walks of life."
+    if destination == "Singapore":
+        travel_planner.city_introduction = "Singapore, a dynamic island city-state, captivates visitors with its blend of futuristic architecture, lush gardens, and diverse cultural influences. From the iconic Marina Bay Sands to the beautiful Gardens by the Bay, Singapore offers a harmonious mix of modernity and greenery. Its vibrant food scene and multicultural charm make it a must-visit destination."
     return travel_planner
