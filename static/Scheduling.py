@@ -128,7 +128,7 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
 
     for day in range(days):
         today_order = order[day]
-        today_plan = {"Day": day + 1, "Attraction_List": [], "Accommodation": {"name": hotel_list[hotel_index].name, "text": "", "imgsrc": "", "details_url": ""}}
+        today_plan = {"Day": day + 1, "Attraction_List": []}
         for i in range(len(today_order)):
             attraction_index = today_order[i]
             attraction_name = attractions_beijing[attraction_index].name
@@ -139,6 +139,7 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
 
     # Part 3: Additional Information
     country = select_country_by_city(destination)
+    travel_planner["Accommodation"] = {"name": hotel_list[hotel_index].name, "text": "", "imgsrc": "", "details_url": ""}
     if country == "China":
         travel_planner.additional_information["Emergency_Number"] = "119"
         travel_planner.additional_information["Policy_Number"] = "110"
