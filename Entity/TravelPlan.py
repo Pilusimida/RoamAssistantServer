@@ -9,9 +9,9 @@ consisting of "transportations", "travel_plans" and "additional_information", wh
 
 class TravelPlanner(object):
     def __init__(self):
-        self.transportations = {"Flight": {"text": "", "link": ""}, "Train": {"text": "", "link": ""}}
+        # self.transportations = {"Flight": {"text": "", "link": ""}, "Train": {"text": "", "link": ""}}
         self.travel_plans = []
-        self.additional_information = {"Weather_Condition": "", "Policy_Number": "", "Emergency_Number": ""}
+        self.additional_information = {"Policy_Number": "", "Emergency_Number": ""}
         self.demo_plan = {
             "Day": 0,
             "Morning": {
@@ -46,7 +46,6 @@ class TravelPlanner(object):
         }
 
     def toJSON(self):
-        travelPlanner = {"Transportation": self.transportations,
-                         "Travel_Plans": self.travel_plans,
+        travelPlanner = {"Travel_Plans": self.travel_plans,
                          "Additional_Information": self.additional_information}
         return json.dumps(travelPlanner)
