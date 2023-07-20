@@ -48,5 +48,6 @@ class TravelPlanner(object):
 
     def toJSON(self):
         travelPlanner = {"Travel_Plans": self.travel_plans,
-                         "Additional_Information": self.additional_information}
+                        "Additional_Information": self.additional_information,
+                        "Accommodation": self.accommodation}
         return json.dumps(travelPlanner)
