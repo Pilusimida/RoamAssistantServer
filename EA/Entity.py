@@ -5,12 +5,13 @@ import numpy as np
 
 
 class Attraction:
-    def __init__(self, index, referTime, timeWindow, referCost, name):
+    def __init__(self, index, referTime, timeWindow, referCost, name, information):
         self.index = index
         self.referTime = referTime
         self.timeWindow = timeWindow
         self.referCost = referCost
         self.name = name
+        self.information = information
 
 
 class Hotel:

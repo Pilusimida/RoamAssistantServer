@@ -98,19 +98,32 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
 
     # Part 2: Travel Plan
     attractions_beijing = [
-        EAttraction(index=1, referTime=3, timeWindow=(9, 17), referCost=30, name="故宫博物院"),
-        EAttraction(index=2, referTime=5, timeWindow=(10, 16), referCost=100, name="八达岭长城"),
-        EAttraction(index=3, referTime=12, timeWindow=(11, 18), referCost=100, name="端门"),
-        EAttraction(index=4, referTime=2, timeWindow=(13, 19), referCost=0, name="颐和园"),
-        EAttraction(index=5, referTime=3, timeWindow=(9, 17), referCost=0, name="恭王府"),
-        EAttraction(index=6, referTime=3, timeWindow=(11, 17), referCost=15, name="天坛"),
-        EAttraction(index=7, referTime=2, timeWindow=(12, 18), referCost=30, name="中国科学技术馆"),
-        EAttraction(index=8, referTime=2, timeWindow=(17, 22), referCost=0, name="清华大学"),
-        EAttraction(index=9, referTime=3, timeWindow=(9, 17), referCost=0, name="慕田峪长城"),
-        EAttraction(index=10, referTime=2, timeWindow=(10, 16), referCost=0, name="北京动物园"),
-        EAttraction(index=11, referTime=4, timeWindow=(11, 17), referCost=0, name="北京海洋馆"),
-        EAttraction(index=12, referTime=5, timeWindow=(13, 19), referCost=0, name="北京欢乐谷"),
-        EAttraction(index=13, referTime=3, timeWindow=(9, 17), referCost=0, name="南锣鼓巷")
+        EAttraction(index=1, referTime=3, timeWindow=(9, 17), referCost=30, name="故宫博物院",
+                    information="The Forbidden City, also known as the Palace Museum, is an ancient imperial palace in Beijing. It served as the home to Chinese emperors for nearly 500 years and now houses a vast collection of historical artifacts and cultural treasures."),
+        EAttraction(index=2, referTime=5, timeWindow=(10, 16), referCost=100, name="八达岭长城",
+                    information="The Great Wall of China at Badaling, known as the Badaling Great Wall, is one of the most well-preserved and famous sections of the Great Wall. It offers breathtaking views and is a popular destination for tourists from around the world."),
+        EAttraction(index=3, referTime=12, timeWindow=(11, 18), referCost=100, name="端门",
+                    information="The National Museum of China is the largest comprehensive history and art museum in the country. It exhibits a rich collection of cultural relics and artworks that showcase China's long and diverse history."),
+        EAttraction(index=4, referTime=2, timeWindow=(13, 19), referCost=0, name="颐和园",
+                    information="The Summer Palace, or Yiheyuan, is a stunning imperial garden and palace in Beijing. It features beautiful pavilions, bridges, and a large lake, creating a picturesque and serene atmosphere."),
+        EAttraction(index=5, referTime=3, timeWindow=(9, 17), referCost=0, name="恭王府",
+                    information="Prince Gong's Mansion, or Gong Wang Fu, is an elegant and well-preserved residence of a Qing dynasty prince. Its traditional Chinese architecture and lush gardens provide a glimpse into China's royal past."),
+        EAttraction(index=6, referTime=3, timeWindow=(11, 17), referCost=15, name="天坛",
+                    information="The Temple of Heaven, or Tiantan, is an ancient religious complex where Chinese emperors performed sacrificial rituals. Its stunning architecture and serene surroundings make it a popular tourist attraction."),
+        EAttraction(index=7, referTime=2, timeWindow=(12, 18), referCost=30, name="中国科学技术馆",
+                    information="The China Science and Technology Museum is an interactive and educational space that showcases China's scientific achievements and technological advancements. It offers engaging exhibits and hands-on activities for visitors of all ages."),
+        EAttraction(index=8, referTime=2, timeWindow=(17, 22), referCost=0, name="清华大学",
+                    information="Tsinghua University is a prestigious academic institution located in Beijing, China. Renowned for its excellence in education and research, Tsinghua offers a wide range of disciplines and attracts top students and scholars from around the world. Its beautiful campus, rich history, and cutting-edge facilities make it a leading global university."),
+        EAttraction(index=9, referTime=3, timeWindow=(9, 17), referCost=0, name="慕田峪长城",
+                    information="Mutianyu Great Wall is another well-preserved section of the Great Wall known for its picturesque landscapes and ancient watchtowers. It's a less crowded option for those seeking a peaceful Great Wall experience."),
+        EAttraction(index=10, referTime=2, timeWindow=(10, 16), referCost=0, name="北京动物园",
+                    information="Beijing Zoo houses a wide variety of animals from all over the world, including pandas, elephants, and lions. It's a great place for families and animal enthusiasts to learn about wildlife conservation."),
+        EAttraction(index=11, referTime=4, timeWindow=(11, 17), referCost=0, name="北京海洋馆",
+                    information="Beijing Aquarium is a fascinating underwater world featuring various marine species. With impressive displays and interactive exhibits, it offers a delightful experience for visitors of all ages."),
+        EAttraction(index=12, referTime=5, timeWindow=(13, 19), referCost=0, name="北京欢乐谷",
+                    information="Happy Valley Beijing is a large amusement park filled with thrilling rides and entertainment options. It's a fantastic place for families and thrill-seekers to enjoy a day of fun and excitement."),
+        EAttraction(index=13, referTime=3, timeWindow=(9, 17), referCost=0, name="南锣鼓巷",
+                    information="Nanluoguxiang, or South Luogu Alley, is a charming traditional hutong street with an array of shops, cafes, and art galleries. It's a perfect place to experience Beijing's historical charm and shop for unique souvenirs.")
     ]
     hotel_list = [
         Hotel(1, "北京乐多港万豪酒店", 204),
@@ -133,7 +146,8 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
             attraction_index = today_order[i]
             attraction_name = attractions_beijing[attraction_index].name
             attraction = select_attraction_by_name(attraction_name)
-            info_structure = {"order": i, "text": attraction.intro, "imgsrc": attraction.imgsrc, "details_url": attraction.details_url}
+            info_structure = {"order": i, "text": attraction.intro, "imgsrc": attraction.imgsrc, "details_url": attraction.details_url,
+                              "information": attractions_beijing[attraction_index].information}
             today_plan["Attraction_List"].append(info_structure)
         travel_planner.travel_plans.append(today_plan)
 
