@@ -11,6 +11,7 @@ class TravelPlanner(object):
     def __init__(self):
         # self.transportations = {"Flight": {"text": "", "link": ""}, "Train": {"text": "", "link": ""}}
         self.travel_plans = []
+        self.accommodation = {"name": "", "text": "", "imgsrc": "", "details_url": ""}
         self.additional_information = {"Policy_Number": "", "Emergency_Number": ""}
         self.demo_plan = {
             "Day": 0,

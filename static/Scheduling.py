@@ -139,7 +139,7 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
 
     # Part 3: Additional Information
     country = select_country_by_city(destination)
-    travel_planner["Accommodation"] = {"name": hotel_list[hotel_index].name, "text": "", "imgsrc": "", "details_url": ""}
+    travel_planner.accommodation["name"] = hotel_list[hotel_index].name
     if country == "China":
         travel_planner.additional_information["Emergency_Number"] = "119"
         travel_planner.additional_information["Policy_Number"] = "110"
