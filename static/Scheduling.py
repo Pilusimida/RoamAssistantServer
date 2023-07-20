@@ -146,7 +146,10 @@ def scheduling(departure: str, destination: str, days: int, first_dat: str):
             attraction_index = today_order[i]
             attraction_name = attractions_beijing[attraction_index].name
             attraction = select_attraction_by_name(attraction_name)
-            info_structure = {"order": i, "text": attraction.intro, "imgsrc": attraction.imgsrc, "details_url": attraction.details_url,
+            info_structure = {"order": i,
+                              # "text": attraction.intro,
+                              "imgsrc": attraction.imgsrc,
+                              "details_url": attraction.details_url,
                               "information": attractions_beijing[attraction_index].information}
             today_plan["Attraction_List"].append(info_structure)
         travel_planner.travel_plans.append(today_plan)
